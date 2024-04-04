@@ -27,7 +27,7 @@ const Header = () => {
           <ul className="flex gap-3">
             <li className="text-black hover:text-orange-500 font-semibold"><Link to="/" style={{textDecoration:"none"}}>Home</Link></li>
             <li className="text-black hover:text-orange-500 font-semibold"><Link to="/about" style={{textDecoration:"none"}}>About Us</Link></li>
-            <li className="text-black hover:text-orange-500 font-semibold"><Link to="/cart" style={{textDecoration:"none"}}> Cart ( {cartItems.length} )  </Link></li>
+            <li className="text-black hover:text-orange-500 font-semibold"><Link to="/cart" style={{textDecoration:"none"}}>🛒[{cartItems.length}] </Link></li>
             <li>
             <button onClick={()=>{
               (btnNameReact === "Login") ? setBtnNameReact("Logout") : setBtnNameReact("Login");

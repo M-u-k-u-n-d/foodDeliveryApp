@@ -11,7 +11,7 @@ const RestaurantCategory = ({data , showItems, setShowIndex, closeAll}) => {
   };
 
   return (
-    <div>
+    <div className="bg-pink-800">
       <div className="w-full bg-gray-50 p-5 rounded-md shadow-md">
         <div className="flex flex-col items-center">
           <div

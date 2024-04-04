@@ -15,10 +15,10 @@ const ItemList = (props) => {
       {props?.items?.map((item) => {
         return (
           <div key={item?.card?.info?.id}>
-            <div className="p-6 flex justify-between">
+            <div className="p-6 flex justify-between ">
               <div className="w-9/12">
                 <div>
-                  <p className="font-serif text-lg text-gray-900 font-semibold">
+                  <p className="font-serif md:text-lg  text-gray-900 font-semibold">
                     {item.card.info.name}
                   </p>
                   <p>
@@ -34,15 +34,14 @@ const ItemList = (props) => {
               <div className="flex flex-col w-3/12">
                 {item?.card?.info?.imageId ? (
                   <img
-                    className="h-20 w-28 object-cover ml-9 rounded-md"
+                    className="h-20 w-28 object-cover md:ml-9 xsm:ml-2 rounded-md"
                     src={CDN_URL + item?.card?.info?.imageId}
                   />
                 ) : (
                   <div className="h-2 w-28 ml-9 rounded-md bg-gray-50"></div>
                 )}
-                <button className="bg-black font-serif text-white rounded-md w-20 ml-12 shadow-md flex justify-center items-center" onClick={()=>{handleAddItem(item)}}>
-                  {" "}
-                  ADD +{" "}
+                <button className="bg-black font-serif text-white rounded-md md:w-20 xsm:w-14 md:ml-12 xsm:ml-4 shadow-md flex justify-center items-center" onClick={()=>{handleAddItem(item)}}>
+                  ADD +
                 </button>
               </div>
             </div>
