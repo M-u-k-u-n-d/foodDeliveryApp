@@ -11,7 +11,7 @@ const RestaurantCategory = ({data , showItems, setShowIndex, closeAll}) => {
   };
 
   return (
-    <div className="bg-pink-800">
+    <div className="">
       <div className="w-full bg-gray-50 p-5 rounded-md shadow-md">
         <div className="flex flex-col items-center">
           <div
@@ -23,7 +23,7 @@ const RestaurantCategory = ({data , showItems, setShowIndex, closeAll}) => {
             </span>
             <span>{showItems ? "🔼" : "🔽"}</span>
           </div>
-          {showItems && <ItemList items={data?.itemCards} />}
+          {showItems && <ItemList items={data?.itemCards} flag={false} />}
         </div>
       </div>
     </div>

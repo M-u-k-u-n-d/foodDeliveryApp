@@ -12,11 +12,12 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen max-h-full">
-    <div className="flex flex-col items-center justify-center bg-gray-100 w-[60vw] m-auto p-4 mt-6 rounded-lg shadow-md">
-      <div className="flex items-center mb-8">
+    <div className="lg:w-[50vw] md:w-[70vw] flex flex-col justify-center bg-cyan-50 m-auto mt-20 rounded-md p-4">
+      <div className="flex items-center mb-8 w-full justify-between">
+        <div></div>
         <h1 className="text-3xl font-bold mr-4">Cart</h1>
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
+          className="px-4 py-2 bg-blue-400 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
           onClick={handleClearCart}
         >
           Clear Cart
@@ -28,7 +29,7 @@ const Cart = () => {
             Your Cart is Empty
           </div>
         ) : (
-          <ItemList items={cartItems} />
+          <ItemList items={cartItems} flag={true}/>
         )}
       </div>
     </div>

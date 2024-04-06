@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
 
-const ItemList = (props) => {
+const ItemList = ({items,flag}) => {
   const dispatch = useDispatch()
 
   handleAddItem = (item)=>{
@@ -12,7 +12,7 @@ const ItemList = (props) => {
 
   return (
     <div>
-      {props?.items?.map((item) => {
+      {items?.map((item) => {
         return (
           <div key={item?.card?.info?.id}>
             <div className="p-6 flex justify-between ">
@@ -40,9 +40,11 @@ const ItemList = (props) => {
                 ) : (
                   <div className="h-2 w-28 ml-9 rounded-md bg-gray-50"></div>
                 )}
-                <button className="bg-black font-serif text-white rounded-md md:w-20 xsm:w-14 md:ml-12 xsm:ml-4 shadow-md flex justify-center items-center" onClick={()=>{handleAddItem(item)}}>
-                  ADD +
-                </button>
+                {(flag === false) &&
+                (<button className="bg-black font-serif text-white rounded-md w-20 ml-12 shadow-md flex justify-center items-center" onClick={()=>{handleAddItem(item)}}>
+                  {" "}
+                  ADD +{" "}
+                </button>)}
               </div>
             </div>
             <div className="h-[0.5] bg-slate-400"></div>
