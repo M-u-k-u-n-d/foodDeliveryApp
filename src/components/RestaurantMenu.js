@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import LoadingCircle from "./LoadingCircle";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import ResMenuShimmer from "../Shimmer/ResMenuShimmer";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(null);
 
-  if (resInfo === null) return <LoadingCircle />;
+  if (resInfo === null) return <ResMenuShimmer />;
   const { name, cuisines, areaName, avgRating, totalRatingsString } =
     resInfo?.cards[2]?.card?.card?.info;
 
@@ -19,10 +19,10 @@ const RestaurantMenu = () => {
         c?.card?.card?.["@type"] ==
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-
+  
   return (
-    <div className="min-h-screen max-h-full">
-    <div className="lg:w-[50vw] md:w-[70vw] flex flex-col bg-cyan-300 m-auto mt-20 rounded-md p-4">
+    <div className="min-h-screen max-h-full mb-20">
+    <div className="lg:w-[50vw] md:w-[70vw] flex flex-col bg-cyan-50 m-auto mt-20 rounded-md p-4">
       <div className="flex bg-gray-50 justify-between mb-10 rounded-md shadow-md p-6">
         <div className="flex flex-col">
           <h1 className="font-bold text-lg font-sarif pb-4">{name}</h1>

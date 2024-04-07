@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import About from "./components/About";
+import AboutUs from "./components/AboutUs";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 import { Outlet } from "react-router-dom";
@@ -11,9 +11,7 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 import ItemList from "./components/ItemList";
-
-
-const About = lazy(()=>import("./components/About"));
+import Footer from "./components/Footer";
 
 const AppLayout = () => {
   const [userName , setUserName] = useState();
@@ -29,6 +27,7 @@ const AppLayout = () => {
     <div className=" bg-gray-900">
       <Header />
       <Outlet />
+      <Footer />
     </div>
     </Provider>
   );
@@ -45,7 +44,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"/about",
-        element: <About/>,
+        element: <AboutUs/>,
       },
       {
         path:"/ItemList",

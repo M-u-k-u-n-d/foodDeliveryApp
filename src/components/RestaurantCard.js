@@ -25,7 +25,7 @@ const RestaurantCard = (props) => {
   export const topRatedLabel = (RestaurantCard)=>{
     return (props)=>{
         return (
-          <div>
+          <div className="mb-10">
           <label className="flex justify-center items-center h-7 w-28 bg-gray-900 text-white absolute mt-1 z-30 rounded-md font-mono" >
             Top Rated
             </label>

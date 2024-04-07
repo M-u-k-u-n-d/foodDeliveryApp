@@ -3,6 +3,8 @@ import {LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping} from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     const onlineStatus = useOnlineStatus();
@@ -12,7 +14,7 @@ const Header = () => {
 
     const cartItems = useSelector((store) => store.cart.items);
 
-    console.log(cartItems)
+    // console.log(cartItems)
 
     return (
       <div className="md:pl-12 md:pr-12 pt-4 pb-2 flex justify-between items-center border-2 rounded-sm sticky top-0 z-50 bg-cyan-50">
@@ -27,7 +29,9 @@ const Header = () => {
           <ul className="flex gap-3">
             <li className="text-black hover:text-orange-500 font-semibold"><Link to="/" style={{textDecoration:"none"}}>Home</Link></li>
             <li className="text-black hover:text-orange-500 font-semibold"><Link to="/about" style={{textDecoration:"none"}}>About Us</Link></li>
-            <li className="text-black hover:text-orange-500 font-semibold"><Link to="/cart" style={{textDecoration:"none"}}>🛒[{cartItems.length}] </Link></li>
+            <li className="text-black hover:text-orange-500 font-semibold"><Link to="/cart" style={{textDecoration:"none"}}>
+            <FontAwesomeIcon icon={faCartShopping} /> [{cartItems.length}] 
+              </Link></li>
             <li>
             <button onClick={()=>{
               (btnNameReact === "Login") ? setBtnNameReact("Logout") : setBtnNameReact("Login");

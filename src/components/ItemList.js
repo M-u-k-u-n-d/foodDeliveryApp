@@ -1,14 +1,17 @@
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 
-const ItemList = ({items,flag}) => {
-  const dispatch = useDispatch()
 
-  handleAddItem = (item)=>{
-    // Dispatch an action 
-    dispatch(addItem(item))
-  }
+const ItemList = ({ items, flag }) => {
+  const dispatch = useDispatch();
+
+  handleAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item));
+  };
 
   return (
     <div>
@@ -31,20 +34,49 @@ const ItemList = ({items,flag}) => {
                   {item.card.info.description}
                 </p>
               </div>
-              <div className="flex flex-col w-3/12">
+              <div className="flex flex-col  items-center ml-6">
                 {item?.card?.info?.imageId ? (
                   <img
-                    className="h-20 w-28 object-cover md:ml-9 xsm:ml-2 rounded-md"
+                    className="h-28 w-36 object-cover  rounded-md"
                     src={CDN_URL + item?.card?.info?.imageId}
                   />
                 ) : (
                   <div className="h-2 w-28 ml-9 rounded-md bg-gray-50"></div>
                 )}
-                {(flag === false) &&
-                (<button className="bg-black font-serif text-white rounded-md w-20 ml-12 shadow-md flex justify-center items-center" onClick={()=>{handleAddItem(item)}}>
-                  {" "}
-                  ADD +{" "}
-                </button>)}
+                {flag === false && (
+                  <button
+                    className="font-bold text-gray-900  bg-[#ff8522] hover:bg-[#ff4a22] hover:text-white rounded-md h-10 w-20 shadow-md flex justify-center items-center relative -top-5"
+                    onClick={() => {
+                      handleAddItem(item);
+                    }}
+                  >
+                     <FontAwesomeIcon icon={faPlus} />
+                  </button>
+                )}
+                {flag && (
+                  <div className="flex">
+                  <button
+                    className="font-bold text-gray-900  bg-[#ff8522] hover:bg-[#ff4a22] hover:text-white rounded-s-xl h-10 w-8 shadow-md flex justify-center items-center relative -top-5"
+                    onClick={() => {
+                      handleAddItem(item);
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                  </button>
+                  <div className="font-bold text-gray-900  bg-white  h-10 w-8 shadow-md flex justify-center items-center relative -top-5"
+>
+                    {5}
+                    </div>
+                  <button
+                    className="font-bold text-gray-900  bg-[#ff8522] hover:bg-[#ff4a22] hover:text-white rounded-e-xl h-10 w-8 shadow-md flex justify-center items-center relative -top-5"
+                    onClick={() => {
+                      handleAddItem(item);
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faMinus} />
+                  </button>
+                  </div>
+                )}
               </div>
             </div>
             <div className="h-[0.5] bg-slate-400"></div>

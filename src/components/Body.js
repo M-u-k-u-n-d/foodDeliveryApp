@@ -1,6 +1,6 @@
 import RestaurantCard , {topRatedLabel} from "./RestaurantCard";
 import { useEffect, useState ,useContext} from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -57,14 +57,13 @@ const Body = () => {
     <div className="w-[80vw] m-auto">
       <div className="flex  items-center justify-center mt-10 gap-6 xsm:flex-col">
         <div className="flex  items-center justify-center mt-10 gap-6">
-
           <button className="h-8 rounded-lg w-28  bg-green-200 hover:bg-green-400 hover:text-white font-serif"
           type="submit"
           onClick={topRated}
         >
           Top Rated
         </button>
-        <button className="h-8 rounded-lg w-28  bg-blue-200 hover:bg-blue-400 hover:text-white font-serif"
+        <button className="h-8 rounded-lg w-28  bg-[#ff8522] hover:bg-[#ff4a22] text-white font-serif"
           type="submit"
           onClick={Search}
         >

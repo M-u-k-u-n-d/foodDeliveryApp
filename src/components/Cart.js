@@ -11,13 +11,13 @@ const Cart = () => {
   };
 
   return (
-    <div className="min-h-screen max-h-full">
+    <div className="min-h-screen max-h-full mb-20">
     <div className="lg:w-[50vw] md:w-[70vw] flex flex-col justify-center bg-cyan-50 m-auto mt-20 rounded-md p-4">
       <div className="flex items-center mb-8 w-full justify-between">
         <div></div>
         <h1 className="text-3xl font-bold mr-4">Cart</h1>
         <button
-          className="px-4 py-2 bg-blue-400 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
+          className="px-4 py-2 text-white rounded-lg font-medium bg-[#ff8522] hover:bg-[#ff4a22] transition-colors"
           onClick={handleClearCart}
         >
           Clear Cart
