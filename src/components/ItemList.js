@@ -1,16 +1,20 @@
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
-import { addItem } from "../utils/cartSlice";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
-
+import { addItem, removeItem } from "../utils/cartSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const ItemList = ({ items, flag }) => {
   const dispatch = useDispatch();
-
   handleAddItem = (item) => {
     // Dispatch an action
     dispatch(addItem(item));
+  };
+  removeAnItem = (item) => {
+    // Dispatch an action
+    dispatch(removeItem(item));
   };
 
   return (
@@ -50,31 +54,19 @@ const ItemList = ({ items, flag }) => {
                       handleAddItem(item);
                     }}
                   >
-                     <FontAwesomeIcon icon={faPlus} />
+                    <FontAwesomeIcon icon={faPlus} />
                   </button>
                 )}
                 {flag && (
                   <div className="flex">
-                  <button
-                    className="font-bold text-gray-900  bg-[#ff8522] hover:bg-[#ff4a22] hover:text-white rounded-s-xl h-10 w-8 shadow-md flex justify-center items-center relative -top-5"
-                    onClick={() => {
-                      handleAddItem(item);
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faPlus} />
-                  </button>
-                  <div className="font-bold text-gray-900  bg-white  h-10 w-8 shadow-md flex justify-center items-center relative -top-5"
->
-                    {5}
-                    </div>
-                  <button
-                    className="font-bold text-gray-900  bg-[#ff8522] hover:bg-[#ff4a22] hover:text-white rounded-e-xl h-10 w-8 shadow-md flex justify-center items-center relative -top-5"
-                    onClick={() => {
-                      handleAddItem(item);
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faMinus} />
-                  </button>
+                    <button
+                      className="font-bold text-gray-900  bg-[#ff8522] hover:bg-[#ff4a22] hover:text-white rounded-md h-10 w-16 shadow-md flex justify-center items-center relative -top-5"
+                      onClick={() => {
+                        removeAnItem(item);
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
                   </div>
                 )}
               </div>
