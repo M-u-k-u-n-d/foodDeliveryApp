@@ -2,7 +2,7 @@ import { LOGO_URL } from "../utils/constants";
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-8">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
         <div>
           <img src={LOGO_URL} alt="Swiggy logo" className="w-20 mb-4" style={{ filter: 'invert(100%)' }} />
           <p className="text-sm">© 2024 Bundl Technologies Pvt. Ltd</p>

@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
     if (header == undefined)  header = "󠁝";
     if (subHeader == undefined)  subHeader = "";
     return (
-      <div className="flex flex-col border items-center w-64 h-72 bg-sky-100 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105">
+      <div className="flex flex-col items-center w-64 h-72 bg-sky-100 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 mb-10">
         <img className="w-60 h-40 object-cover pt-2 pb-4 box-border rounded-[22px] relative z-0" src={CDN_URL + cloudinaryImageId} alt="card-img"></img>
           <h2 className="flex justify-center items-center h-20 rounded-lg w-full font-extrabold  pb-4 relative bottom-12 text-xl z-10 text-white bg-gradient-to-b from-transparent to-black">{`${header}  ${subHeader}`}</h2>
         <div className="w-60 relative -top-8">

@@ -8,18 +8,20 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const ItemList = ({ items, flag }) => {
   const dispatch = useDispatch();
-  handleAddItem = (item) => {
+  let handleAddItem = (item) => {
     // Dispatch an action
     dispatch(addItem(item));
   };
-  removeAnItem = (item) => {
+  let removeAnItem = (index) => {
     // Dispatch an action
-    dispatch(removeItem(item));
+    // console.log(typeof item);
+    // item.ItemListIndex = index;
+    dispatch(removeItem(index));
   };
 
   return (
     <div>
-      {items?.map((item) => {
+      {items?.map((item , index) => {
         return (
           <div key={item?.card?.info?.id}>
             <div className="p-6 flex justify-between ">
@@ -62,7 +64,8 @@ const ItemList = ({ items, flag }) => {
                     <button
                       className="font-bold text-gray-900  bg-[#ff8522] hover:bg-[#ff4a22] hover:text-white rounded-md h-10 w-16 shadow-md flex justify-center items-center relative -top-5"
                       onClick={() => {
-                        removeAnItem(item);
+                        // console.log(index)
+                        removeAnItem(index);
                       }}
                     >
                       <FontAwesomeIcon icon={faTrashCan} />
