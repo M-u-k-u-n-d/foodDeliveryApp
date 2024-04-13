@@ -6,11 +6,17 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
+function randomNumber()
+{
+  return Math.floor(Math.random()*100000000);
+  // uuid - library
+}
+
 const ItemList = ({ items, flag }) => {
   const dispatch = useDispatch();
-  let handleAddItem = (item) => {
+  let handleAddItem = (index) => {
     // Dispatch an action
-    dispatch(addItem(item));
+    dispatch(addItem(index));
   };
   let removeAnItem = (index) => {
     // Dispatch an action
@@ -23,21 +29,21 @@ const ItemList = ({ items, flag }) => {
     <div>
       {items?.map((item , index) => {
         return (
-          <div key={item?.card?.info?.id}>
+          <div key={randomNumber()}>
             <div className="p-6 flex justify-between ">
               <div className="w-9/12">
                 <div>
                   <p className="font-serif md:text-lg  text-gray-900 font-semibold">
-                    {item.card.info.name}
+                    {item?.card?.info?.name}
                   </p>
                   <p>
                     ₹
-                    {(item.card.info.price || item.card.info.defaultPrice) /
+                    {(item?.card?.info?.price || item?.card?.info?.defaultPrice) /
                       100}
                   </p>
                 </div>
                 <p className="font-sans font-thin text-xs text-wrap">
-                  {item.card.info.description}
+                  {item?.card?.info?.description}
                 </p>
               </div>
               <div className="flex flex-col  items-center ml-6">
