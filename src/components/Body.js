@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import FoodCategory from "./FoodCategory";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -52,8 +53,9 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="w-[80vw] m-auto border-box mb-20">
+      <FoodCategory/>
       <div className="flex flex-col items-center justify-center  gap-6 md:flex-row">
-        <div className="flex flex-col w-[80vw] items-center justify-center gap-6 mt-32 md:flex-row">
+        <div className="flex flex-col w-[80vw] items-center justify-center gap-6 mt-25 md:flex-row">
           <input
             className="border-2 border-black h-8 rounded-lg  text-start pl-4 w-[255px]"
             type="text"
@@ -82,7 +84,9 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-20">
+      <h1 className="sm:text-xl text-lg font-extrabold mt-5 ">Top Restaurants Near You </h1>
+
+      <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10">
         {filteredListOfRestaurant?.map((val) => (
           <Link key={val.info.id} to={"/restaurants/" + val.info.id}>
             {val.info.avgRating >= 4.3 ? (

@@ -24,7 +24,7 @@ const AppLayout = () => {
   },[])
   return (
     <Provider store={appStore}>
-    <div className=" bg-gray-900 border-box">
+    <div className="  bg-white border-box">
       <Header />
       <Outlet />
       <Footer />

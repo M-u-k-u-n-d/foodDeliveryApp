@@ -28,7 +28,7 @@ const AboutUs = () => {
       <p className="">
       <h1 className="font-bold text-4xl mb-2 font-mono">Welcome to my corner of the web! </h1>
       <h2 className="font-semibold text-2xl mb-2 font-sans">I'm {name},a {bio} </h2>
-      <h3 className="font-serif text-xl">Dive into my world where I've whipped up a flavorful food delivery app using React.</h3>
+      <h3 className="font-serif text-xl">Dive into my world where I've whipped up a flavorful food ordering app using React.</h3>
       </p>
     </div>
     </div>
